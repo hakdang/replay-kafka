@@ -1,8 +1,7 @@
-package kr.geun.oss.replayer.consumer;
+package kr.hakdang.oss.replayer.consumer;
 
-import kr.geun.oss.replayer.config.ReplayConfig;
+import kr.hakdang.oss.replayer.config.ReplayConfig;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.MockConsumer;
 import org.apache.kafka.clients.consumer.OffsetResetStrategy;
 import org.apache.kafka.common.TopicPartition;

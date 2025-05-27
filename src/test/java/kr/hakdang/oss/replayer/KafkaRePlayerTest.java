@@ -1,7 +1,7 @@
-package kr.geun.oss.replayer;
+package kr.hakdang.oss.replayer;
 
-import kr.geun.oss.replayer.config.ConfigLoader;
-import kr.geun.oss.replayer.config.ReplayConfig;
+import kr.hakdang.oss.replayer.config.ConfigLoader;
+import kr.hakdang.oss.replayer.config.ReplayConfig;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.MockedStatic;

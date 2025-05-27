@@ -1,9 +1,9 @@
-package kr.geun.oss.replayer;
+package kr.hakdang.oss.replayer;
 
-import kr.geun.oss.replayer.config.ConfigLoader;
-import kr.geun.oss.replayer.config.ReplayConfig;
-import kr.geun.oss.replayer.consumer.KafkaConsumerManager;
-import kr.geun.oss.replayer.producer.KafkaProducerManager;
+import kr.hakdang.oss.replayer.config.ConfigLoader;
+import kr.hakdang.oss.replayer.config.ReplayConfig;
+import kr.hakdang.oss.replayer.consumer.KafkaConsumerManager;
+import kr.hakdang.oss.replayer.producer.KafkaProducerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

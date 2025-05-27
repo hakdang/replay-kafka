@@ -1,13 +1,12 @@
-package kr.geun.oss.replayer.consumer;
+package kr.hakdang.oss.replayer.consumer;
 
-import kr.geun.oss.replayer.config.ReplayConfig;
+import kr.hakdang.oss.replayer.config.ReplayConfig;
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.Duration;
 import java.util.*;
 
 /**

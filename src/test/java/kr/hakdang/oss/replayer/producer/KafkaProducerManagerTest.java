@@ -1,11 +1,10 @@
-package kr.geun.oss.replayer.producer;
+package kr.hakdang.oss.replayer.producer;
 
-import kr.geun.oss.replayer.config.ReplayConfig;
+import kr.hakdang.oss.replayer.config.ReplayConfig;
 import org.apache.kafka.clients.producer.MockProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.junit.jupiter.api.Test;
 
@@ -64,7 +63,7 @@ class KafkaProducerManagerTest {
         // Then: 메시지가 성공적으로 전송되어야 함
         assertTrue(future.isDone());
         assertEquals(1, mockProducer.history().size());
-        
+
         ProducerRecord<String, String> sentRecord = mockProducer.history().get(0);
         assertEquals(config.targetTopic(), sentRecord.topic());
         assertEquals("test-key", sentRecord.key());
@@ -82,7 +81,7 @@ class KafkaProducerManagerTest {
         // Then: Producer가 정상적으로 생성되어야 함
         assertNotNull(mockProducer);
         assertEquals(0, mockProducer.history().size());
-        
+
         // 메시지가 없는 상태에서는 completeNext() 대신 closed 상태를 확인
         assertFalse(mockProducer.closed());
     }

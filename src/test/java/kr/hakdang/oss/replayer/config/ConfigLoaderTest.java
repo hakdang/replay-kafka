@@ -1,4 +1,4 @@
-package kr.geun.oss.replayer.config;
+package kr.hakdang.oss.replayer.config;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ class ConfigLoaderTest {
 
     @TempDir
     Path tempDir;
-    
+
     private Path configFile;
 
     @BeforeEach
@@ -42,7 +42,7 @@ class ConfigLoaderTest {
             kafka.processing.delay=100
             kafka.consumer.timeout=30
             """;
-        
+
         writeConfigFile(configContent);
 
         // When: 설정 로드
@@ -71,7 +71,7 @@ class ConfigLoaderTest {
             kafka.source.topic=source-topic
             kafka.target.topic=target-topic
             """;
-        
+
         writeConfigFile(configContent);
 
         // When: 설정 로드
@@ -99,7 +99,7 @@ class ConfigLoaderTest {
             kafka.source.topic=source-topic
             kafka.target.topic=target-topic
             """;
-        
+
         writeConfigFile(configContent);
 
         // When & Then: 예외가 발생해야 함
@@ -107,7 +107,7 @@ class ConfigLoaderTest {
             IllegalArgumentException.class,
             () -> ConfigLoader.loadConfig(configFile.toString())
         );
-        
+
         assertEquals("kafka.source.bootstrap.servers is required", exception.getMessage());
     }
 
@@ -119,7 +119,7 @@ class ConfigLoaderTest {
             kafka.source.topic=source-topic
             kafka.target.topic=target-topic
             """;
-        
+
         writeConfigFile(configContent);
 
         // When & Then: 예외가 발생해야 함
@@ -127,7 +127,7 @@ class ConfigLoaderTest {
             IllegalArgumentException.class,
             () -> ConfigLoader.loadConfig(configFile.toString())
         );
-        
+
         assertEquals("kafka.target.bootstrap.servers is required", exception.getMessage());
     }
 
@@ -139,7 +139,7 @@ class ConfigLoaderTest {
             kafka.target.bootstrap.servers=localhost:9093
             kafka.target.topic=target-topic
             """;
-        
+
         writeConfigFile(configContent);
 
         // When & Then: 예외가 발생해야 함
@@ -147,7 +147,7 @@ class ConfigLoaderTest {
             IllegalArgumentException.class,
             () -> ConfigLoader.loadConfig(configFile.toString())
         );
-        
+
         assertEquals("kafka.source.topic is required", exception.getMessage());
     }
 
@@ -159,7 +159,7 @@ class ConfigLoaderTest {
             kafka.target.bootstrap.servers=localhost:9093
             kafka.source.topic=source-topic
             """;
-        
+
         writeConfigFile(configContent);
 
         // When & Then: 예외가 발생해야 함
@@ -167,7 +167,7 @@ class ConfigLoaderTest {
             IllegalArgumentException.class,
             () -> ConfigLoader.loadConfig(configFile.toString())
         );
-        
+
         assertEquals("kafka.target.topic is required", exception.getMessage());
     }
 

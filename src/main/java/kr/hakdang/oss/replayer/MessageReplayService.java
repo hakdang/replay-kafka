@@ -1,6 +1,6 @@
-package kr.geun.oss.replayer;
+package kr.hakdang.oss.replayer;
 
-import kr.geun.oss.replayer.config.ReplayConfig;
+import kr.hakdang.oss.replayer.config.ReplayConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;

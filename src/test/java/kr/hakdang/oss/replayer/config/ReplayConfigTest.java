@@ -1,4 +1,4 @@
-package kr.geun.oss.replayer.config;
+package kr.hakdang.oss.replayer.config;
 
 import org.junit.jupiter.api.Test;
 
@@ -46,7 +46,7 @@ class ReplayConfigTest {
                 null, null, null, null, 0, 10
             )
         );
-        
+
         assertEquals("kafka.source.bootstrap.servers is required", exception.getMessage());
     }
 
@@ -61,7 +61,7 @@ class ReplayConfigTest {
                 null, null, null, null, 0, 10
             )
         );
-        
+
         assertEquals("kafka.source.bootstrap.servers is required", exception.getMessage());
     }
 
@@ -76,7 +76,7 @@ class ReplayConfigTest {
                 null, null, null, null, 0, 10
             )
         );
-        
+
         assertEquals("kafka.target.bootstrap.servers is required", exception.getMessage());
     }
 
@@ -91,7 +91,7 @@ class ReplayConfigTest {
                 null, null, null, null, 0, 10
             )
         );
-        
+
         assertEquals("kafka.target.bootstrap.servers is required", exception.getMessage());
     }
 
@@ -106,7 +106,7 @@ class ReplayConfigTest {
                 null, null, null, null, 0, 10
             )
         );
-        
+
         assertEquals("kafka.source.topic is required", exception.getMessage());
     }
 
@@ -121,7 +121,7 @@ class ReplayConfigTest {
                 null, null, null, null, 0, 10
             )
         );
-        
+
         assertEquals("kafka.target.topic is required", exception.getMessage());
     }
 

@@ -1,6 +1,6 @@
-package kr.geun.oss.replayer.producer;
+package kr.hakdang.oss.replayer.producer;
 
-import kr.geun.oss.replayer.config.ReplayConfig;
+import kr.hakdang.oss.replayer.config.ReplayConfig;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

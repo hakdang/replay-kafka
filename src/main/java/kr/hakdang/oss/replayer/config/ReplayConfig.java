@@ -1,4 +1,4 @@
-package kr.geun.oss.replayer.config;
+package kr.hakdang.oss.replayer.config;
 
 import java.time.Instant;
 
