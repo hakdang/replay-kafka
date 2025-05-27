@@ -1,0 +1,72 @@
+plugins {
+  id 'java'
+  id 'jacoco'
+  id 'distribution'
+  id 'application'
+}
+
+group = 'kr.geun.oss.replay'
+version = '0.0.1-SNAPSHOT'
+
+// 메인 클래스 설정
+application {
+  mainClass = 'kr.geun.oss.replayer.KafkaRePlayer'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.apache.kafka:kafka-clients:3.7.0'
+  implementation 'org.slf4j:slf4j-simple:2.0.9'
+
+  testImplementation platform('org.junit:junit-bom:5.10.0')
+  testImplementation 'org.junit.jupiter:junit-jupiter'
+  testImplementation 'org.apache.kafka:kafka-streams-test-utils:3.7.0'
+  testImplementation 'org.springframework.kafka:spring-kafka-test:3.2.0'
+  testImplementation 'org.awaitility:awaitility:4.2.0'
+  testImplementation 'org.mockito:mockito-core:5.8.0'
+  testImplementation 'org.mockito:mockito-junit-jupiter:5.8.0'
+}
+
+test {
+  useJUnitPlatform()
+  finalizedBy jacocoTestReport
+}
+
+jacoco {
+  toolVersion = "0.8.11"
+}
+
+jacocoTestReport {
+  dependsOn test
+  reports {
+    xml.required = true
+    html.required = true
+    csv.required = false
+  }
+}
+
+jacocoTestCoverageVerification {
+  violationRules {
+    rule {
+      limit {
+        minimum = 0.80 // 80% 커버리지 요구
+      }
+    }
+  }
+}
+
+check.dependsOn jacocoTestCoverageVerification
+
+jar {
+  archiveBaseName = 'kafka-replayer'
+  manifest {
+    attributes 'Main-Class': 'kr.geun.oss.replayer.KafkaRePlayer'
+  }
+  from {
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
